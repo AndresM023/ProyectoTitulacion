@@ -1,0 +1,135 @@
+:root {
+    --bg-color: #FAFAFA;
+    --navbar-bg: #FFE3AE;
+    --sidebar-bg: rgb(18, 23, 30);
+    --sidebar-hover-bg: beige;
+    --sidebar-text-color: white;
+    --sidebar-hover-text: black;
+    --arrow-bg: dimgrey;
+    --arrow-hover-bg: rgb(218, 218, 218);
+    --arrow-hover-color: #12171e;
+    --transition-speed: 0.5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    top: 0;
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+    background-color: var(--navbar-bg);
+}
+
+/* SideBar */
+.side-bar {
+    position: fixed;
+    top: 70px; /* Ajusta según la altura del navbar */
+    left: 0;
+    width: 250px;
+    height: calc(100% - 70px); /* Altura ajustada tomando en cuenta el navbar */
+    background-color: var(--sidebar-bg);
+    overflow-y: auto;
+    transition: width 0.5s ease; /* Mejor transición */
+}
+
+.side-bar .nav-link {
+    color: var(--sidebar-text-color);
+    text-align: left;
+    margin: 10px;
+    transition: all 0.5s ease;
+}
+
+.side-bar .nav-link:hover {
+    color: var(--sidebar-hover-text);
+    background-color: var(--sidebar-hover-bg);
+    margin-right: 10px;
+    border-radius: 10px;
+}
+/* Listado de los items */
+.side-bar .nav-item {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Flecha del SideBar a la izquierda */
+.side-bar .fa-angles-right,
+.side-bar .fa-angles-left {
+    color: var(--sidebar-text-color);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-color: var(--arrow-bg);
+    border-radius: 10%;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.side-bar .fa-angles-left:hover,
+.side-bar .fa-angles-right:hover {
+    background-color: var(--arrow-hover-bg);
+    color: var(--arrow-hover-color);
+}
+
+.side-bar .fa-angles-right {
+    margin-left: 25%;
+}
+
+.side-bar .fa-angles-left {
+    margin-left: 80%;
+}
+
+/* Tooltips */
+.side-bar .nav .tooltip {
+    display: none;
+}
+
+.side-bar.active {
+    width: 70px;
+}
+
+.side-bar.active .nav-item {
+    display: none;
+}
+
+.side-bar.active .tooltip {
+    display: block;
+    position: absolute;
+    left: 70px;
+    top: 10px;
+    background-color: var(--sidebar-hover-bg);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 70px; /* Ajusta el contenido bajo el navbar */
+    margin-left: 250px; /* Espacio para el sidebar */
+    padding: 20px;
+    transition: margin-left 0.5s ease;
+}
+
+.side-bar.active ~ .main-content {
+    margin-left: 70px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
