@@ -2,12 +2,13 @@
 <html lang="es">
 
 {% load static %}
+
 <head>
-    {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <!-- Fuente -->
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
     <!-- CSS - Boostrap -->
@@ -16,15 +17,16 @@
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
     <!-- CSS - Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    {% block head %}
     {% endblock %}
 </head>
 
 <body>
     {% block nav %}
     <!-- Navbar -->
-    <nav class="navbar bg-dark navbar-expand-lg nav-bar fixed-top">
+    <nav class="navbar bg-dark navbar-expand-lg nav-bar sticky-top">
         <div class="container-fluid">
-            <img class="mx-5" src="{% static 'img/logro_alcaldia_milagro.png' %}" alt="Logo Alcaldia" width="150px">
+            <img class="mx-5" src="{% static 'img/logro_alcaldia_milagro.png' %}" alt="Logo Alcaldia" width="130px">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,78 +41,81 @@
         </div>
     </nav>
     {% endblock %}
-    {% block sidebar %}
-    <!-- Sidebar -->
-    <div class="side-bar bg-dark">
-        <i class="fa-solid fa-angles-left" id="btn"></i>
-        <ul class="nav flex-column">
-            <li class="mb-3">
-                <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-box-tissue"></i>
-                    <span class="nav-item"> Reportes del Personal </span>
-                </a>
-                <span class="tooltip"> Reportes del Personal </span>
-            </li>
-            <li class="mb-3">
-                <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <span class="nav-item"> Lugares de Guardia </span>
-                </a>
-                <span class="tooltip"> Lugares de Guardia </span>
-            </li>
-            <li class="mb-3">
-                <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-users-gear"></i>
-                    <span class="nav-item"> Creación de Roles </span>
-                </a>
-                <span class="tooltip"> Creación de Roles </span>
-            </li>
-            <li class="mb-3">
-                <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-users"></i>
-                    <span class="nav-item"> Listado de personal </span>
-                </a>
-                <span class="tooltip"> Listado de personal </span>
-            </li>
-            <li class="mb-3">
-                <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-indent"></i>
-                    <span class="nav-item"> Tipo de Incidencias </span>
-                </a>
-                <span class="tooltip"> Listado de personal </span>
-            </li>
-            <li class="mb-3">
-                <a class="nav-link active" href="#">
-                    <i class="fa-solid fa-calendar"></i>
-                    <span class="nav-item"> Turno </span>
-                </a>
-                <span class="tooltip"> Turnos </span>
-            </li>
-        </ul>
-    </div>
-    {% endblock %}
 
-    
-    <!-- Main Content -->
-    <main class="main-content">
-        {% block main %}
+    {% block sidebar %}
+    <div class="flex flex-row">
+        <!-- Sidebar -->
+        <div class="side-bar bg-dark">
+            <i class="fa-solid fa-angles-left" id="btn"></i>
+            <ul class="nav flex-column">
+                <li class="mb-1">
+                    <a class="nav-link active" href="#">
+                        <i class="fa-solid fa-box-tissue"></i>
+                        <span class="nav-item"> Reportes del Personal </span>
+                    </a>
+                    <span class="tooltip"> Reportes del Personal </span>
+                </li>
+                <li class="mb-1">
+                    <a class="nav-link active" href="#">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span class="nav-item"> Lugares de Guardia </span>
+                    </a>
+                    <span class="tooltip"> Lugares de Guardia </span>
+                </li>
+                <li class="mb-1">
+                    <a class="nav-link active" href="#">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <span class="nav-item"> Creación de Roles </span>
+                    </a>
+                    <span class="tooltip"> Creación de Roles </span>
+                </li>
+                <li class="mb-1">
+                    <a class="nav-link active" href="#">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="nav-item"> Listado de personal </span>
+                    </a>
+                    <span class="tooltip"> Listado de personal </span>
+                </li>
+                <li class="mb-1">
+                    <a class="nav-link active" href="#">
+                        <i class="fa-solid fa-indent"></i>
+                        <span class="nav-item"> Tipo de Incidencias </span>
+                    </a>
+                    <span class="tooltip"> Listado de personal </span>
+                </li>
+                <li class="mb-1">
+                    <a class="nav-link active" href="#">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="nav-item"> Turno </span>
+                    </a>
+                    <span class="tooltip"> Turnos </span>
+                </li>
+            </ul>
+        </div>
+        {% endblock %}
+
+
         <div class="container">
-            <p>PE KRATOS</p>
+            <!-- Main Content -->
+            <main class="main-content">
+                {% block main %}
+                
+                    <p>PE KRATOS</p>
+                
+                {% endblock %}
+            </main>
         </div>
-        {% endblock %}
-    </main>
-    
-    
-    
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
-        {% block footer %}
-        <div class="container-fluid">
-            <span>2024 Alcaldía de Milagro. Todos los derechos reservados</span>
-        </div>
-        {% endblock %}
-    </footer>
-    
+    </div>
+    <div>
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+            {% block footer %}
+            <div class="container-fluid">
+                <span>2024 Alcaldía de Milagro. Todos los derechos reservados</span>
+            </div>
+            {% endblock %}
+        </footer>
+    </div>
     {% block script %}
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/1a76f9833f.js" crossorigin="anonymous"></script>
@@ -121,7 +126,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-    
+
     <script src="{% static 'js/side_bar.js' %}"></script>
     {% endblock %}
 </body>

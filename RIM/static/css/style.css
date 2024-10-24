@@ -28,43 +28,60 @@ body {
 /* Navbar */
 .navbar {
     top: 0;
-    position: fixed;
-    z-index: 2;
     width: 100vw;
     background-color: var(--navbar-bg);
+    height: 60px;
 }
 
 /* SideBar */
 .side-bar {
     position: fixed;
-    top: 70px; /* Ajusta según la altura del navbar */
     left: 0;
-    width: 250px;
-    height: calc(100% - 70px); /* Altura ajustada tomando en cuenta el navbar */
+    width: 275px;
+    height: 100%;
     background-color: var(--sidebar-bg);
     overflow-y: auto;
-    transition: width 0.5s ease; /* Mejor transición */
+    transition: width var(--transition-speed);
 }
 
 .side-bar .nav-link {
     color: var(--sidebar-text-color);
-    text-align: left;
-    margin: 10px;
-    transition: all 0.5s ease;
+    margin: 5px 15px;
+    padding: 10px 15px;
+    transition: all var(--transition-speed);
+    text-align: center;
 }
 
 .side-bar .nav-link:hover {
     color: var(--sidebar-hover-text);
     background-color: var(--sidebar-hover-bg);
-    margin-right: 10px;
     border-radius: 10px;
 }
-/* Listado de los items */
-.side-bar .nav-item {
-    font-size: 16px;
-    margin-bottom: 10px;
+
+.side-bar .fa-angles-left {
+    margin-left: 80%;
+}
+.side-bar .fa-angles-right{
+    margin-left: 30%;
+}
+.side-bar.active {
+    width: 90px;
 }
 
+.side-bar.active .nav-item {
+    display: none;
+}
+
+.side-bar .nav .tooltip{
+    display: none;
+}
+.side-bar.active .tooltip {
+    display: none;
+    left: 70px;
+    top: 10px;
+    background-color: var(--sidebar-hover-bg);
+    border-radius: 4px;
+}
 /* Flecha del SideBar a la izquierda */
 .side-bar .fa-angles-right,
 .side-bar .fa-angles-left {
@@ -84,52 +101,17 @@ body {
     color: var(--arrow-hover-color);
 }
 
-.side-bar .fa-angles-right {
-    margin-left: 25%;
-}
-
-.side-bar .fa-angles-left {
-    margin-left: 80%;
-}
-
-/* Tooltips */
-.side-bar .nav .tooltip {
-    display: none;
-}
-
-.side-bar.active {
-    width: 70px;
-}
-
-.side-bar.active .nav-item {
-    display: none;
-}
-
-.side-bar.active .tooltip {
-    display: block;
-    position: absolute;
-    left: 70px;
-    top: 10px;
-    background-color: var(--sidebar-hover-bg);
-    padding: 5px;
-    border-radius: 4px;
-}
-
 /* Main Content */
 .main-content {
-    margin-top: 70px; /* Ajusta el contenido bajo el navbar */
-    margin-left: 250px; /* Espacio para el sidebar */
-    padding: 20px;
-    transition: margin-left 0.5s ease;
+    margin: 30px 50px;
+    padding: 0px 40px;
+    transition: margin-left var(--transition-speed);
 }
 
-.side-bar.active ~ .main-content {
-    margin-left: 70px;
-}
 
+/* Footer */
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
-    z-index: 1;
 }
