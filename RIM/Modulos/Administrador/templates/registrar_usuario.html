@@ -1,0 +1,10 @@
+{% extends "base_pantallas.html" %}
+
+{% block main  %}
+    <h2>{% if object.pk %}Editar Usuario{% else %}Crear Usuario{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}
